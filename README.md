@@ -27,7 +27,7 @@ During this project I learned:
 ## How to use
 
 ```md
-URL
+URL >> https://fubootcamp.github.io/js-payroll-manager/
 ```
 
 
@@ -37,7 +37,7 @@ Home screen
 Click on the button Add Employees to start capturing employee data
 Enter firstname, lastname and salary of the employee. Click on ACEPTAR for each field
 Click on the button ACEPTAR to add another employee, whe you finish press CANCELAR button 
-![Adfd another employye button screen.](/assets/add-another-employee-screen.png)
+![Add another employee button screen.](/assets/add-another-employee-screen.png)
 
 The final screen is show with a table of employees
 ![Final screen.](/assets/final-screen.png)
@@ -49,4 +49,4 @@ On the project page give right-click to show the menu, select Inspect (Inspeccio
 
 
 ¡Final screen with dev-tool console!
-![Final screen and devTools console.](/assets/final-screen-with-console.png)
+![Final screen and  console.](/assets/final-screen-with-console.png)
