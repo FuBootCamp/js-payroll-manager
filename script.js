@@ -65,7 +65,7 @@ const displayAverageSalary = function(employeesArray) {
       sumSalaries = sumSalaries + employeesArray[index].salary;
   }
   
-  // declaring and initializing a var por de average
+  // declaring and initializing a var for de average
   let avgSalaries = 0
   // calculating  the average salary
   avgSalaries = sumSalaries / employeesArray.length;
