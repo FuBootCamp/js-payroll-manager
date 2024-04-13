@@ -4,16 +4,87 @@ const addEmployeesBtn = document.querySelector('#add-employees-btn');
 // Collect employee data
 const collectEmployees = function() {
   // TODO: Get user input to create and return an array of employee objects
+
+  // Declaring an ARRAY OF OBJECTS for data of the empployees
+  const employeesArray = [
+    {   firstName:String,
+        lastName:String,
+        salary:Number
+    }
+  ]
+
+  // Initializing the array of objets
+  employeesArray.length = 0;
+  
+  // Declaring a array of string to capture the data of one empleyee
+  let inputEmployeeArray = {
+        firstName:String,
+        lastName:String,
+        salary:Number 
+  }
+
+  // Initializing variable for the while loop
+  anotherEmployee = true;
+
+  // a loop while adding another employee
+  while (anotherEmployee) {
+         inputEmployeeArray = {
+            "firstName" : window.prompt("First name"),
+            "lastName" : window.prompt("Last name"),
+            "salary" : Number(window.prompt("Salary"))
+             }
+        if (isNaN(inputEmployeeArray.salary)) {
+            inputEmployeeArray.salary = 0;
+        }
+            // validating if the cancel button was clicked
+        if ((inputEmployeeArray.firstName == null) ||
+            (inputEmployeeArray.lastName == null) ||
+            (inputEmployeeArray.salary == null)) {
+                // nothing to do 
+             }
+            else {
+                // adding a row to the array of objets 
+                employeesArray.push(inputEmployeeArray); 
+            }
+        anotherEmployee = window.confirm("Do you want tu ADD another employee?")
+        }
+        // returning the parameter (array of objets) where the function is called (line 126)
+  return employeesArray;
+        // End of the function collectEmployees
 }
 
 // Display the average salary
 const displayAverageSalary = function(employeesArray) {
   // TODO: Calculate and display the average salary
+
+  // initializing a var to sum up salaries
+  let sumSalaries = 0
+
+  // a loop for sum up the employees salaries 
+  for (let index = 0; index < employeesArray.length; index++) {
+      sumSalaries = sumSalaries + employeesArray[index].salary;
+  }
+  
+  // declaring and initializing a var por de average
+  let avgSalaries = 0
+  // calculating  the average salary
+  avgSalaries = sumSalaries / employeesArray.length;
+  // display in the  console
+  console.log(`The average salary employee between our ${employeesArray.length} employee(s)
+is ${avgSalaries.toLocaleString("en-US",{
+    style:"currency",
+    currency:"USD"
+  })}`);
 }
 
 // Select a random employee
 const getRandomEmployee = function(employeesArray) {
   // TODO: Select and display a random employee
+  let randomEmployeeindex = 0;
+  // generating a random number in the range of employees with two functions (FLOOR(RANDOM))
+  randomEmployeeindex = Math.floor(Math.random()*employeesArray.length);
+  console.log(`Congratulations to ${employeesArray[randomEmployeeindex].firstName} ${employeesArray[randomEmployeeindex].lastName}
+our random drawing winner!`)
 }
 
 /*
@@ -32,6 +103,7 @@ const displayEmployees = function(employeesArray) {
 
   // Loop through the employee data and create a row for each employee
   for (let i = 0; i < employeesArray.length; i++) {
+
     const currentEmployee = employeesArray[i];
 
     const newTableRow = document.createElement("tr");
@@ -46,6 +118,7 @@ const displayEmployees = function(employeesArray) {
 
     const salaryCell = document.createElement("td");
     // Format the salary as currency
+
     salaryCell.textContent = currentEmployee.salary.toLocaleString("en-US",{
       style:"currency",
       currency:"USD"
@@ -60,8 +133,8 @@ const displayEmployees = function(employeesArray) {
 const trackEmployeeData = function() {
   const employees = collectEmployees();
 
-  console.table(employees);
-
+  //  The next line was commented because the display was not inidcate in the acceptance criteria 
+  // console.table(employees);
   displayAverageSalary(employees);
 
   console.log('==============================');
